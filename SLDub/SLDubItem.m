@@ -108,7 +108,7 @@ typedef enum {
         return;
     }
     
-    [self.helpView setAccessibilityElements:nil];
+    [self.helpView setAccessibilityElement:nil];
     
     UIAccessibilityElement *element = [[UIAccessibilityElement alloc] initWithAccessibilityContainer:self.helpView];
     [element setAccessibilityLabel:[self.message string]];
@@ -116,8 +116,7 @@ typedef enum {
     CGRect accessibilityFrame = [self messageRect];
     accessibilityFrame.size = [self messageSizeForWidth:self.messageRect.size.width];
     [element setAccessibilityFrame:UIAccessibilityConvertFrameToScreenCoordinates(accessibilityFrame, self.helpView)];
-    NSArray *elements = @[element];
-    [self.helpView setAccessibilityElements:elements];
+    [self.helpView setAccessibilityElement:element];
 }
 
 - (void)removeFromHelpView {
@@ -125,7 +124,7 @@ typedef enum {
     [self.helpView patchHoleForItem:self];
     self.helpView = nil;
     
-    [self.helpView setAccessibilityElements:nil];
+    [self.helpView setAccessibilityElement:nil];
 }
 
 - (void)setPortalPath:(UIBezierPath *)portalPath {

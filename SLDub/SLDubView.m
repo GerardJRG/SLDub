@@ -236,4 +236,21 @@
     }];
 }
 
+- (NSInteger)accessibilityElementCount {
+    return self.accessibilityElement ? 1 : 0;
+}
+
+- (id)accessibilityElementAtIndex:(NSInteger)index {
+    return (index == 0) ? self.accessibilityElement : nil;
+}
+
+- (NSInteger)indexOfAccessibilityElement:(id)element {
+    if ([element isEqual:self.accessibilityElement]) {
+        return 0;
+    }
+    else {
+        return NSNotFound;
+    }
+}
+
 @end

@@ -40,6 +40,8 @@ typedef void (^SLDubViewItemEventBlock)();
 @property (nonatomic) BOOL dismissOnTap;
 @property (nonatomic) CGFloat animationDuration;
 
+@property (nonatomic, strong) UIAccessibilityElement *accessibilityElement;
+
 @end
 
 @interface SLDubView (Private)
